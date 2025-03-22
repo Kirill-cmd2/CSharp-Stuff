@@ -1,0 +1,19 @@
+public class Enumerator
+{
+    /// <summary>
+    /// Method for enumerating given sequence
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="items"></param>
+    /// <returns>Tuple of index and value</returns>
+    public static IEnumerable<(int Index, T Value)> Enumerate<T>(IEnumerable<T> items)
+    {
+        int index = 0;
+
+        foreach (var item in items)
+        {
+            yield return (index, item);
+            index++;
+        }
+    }
+}
